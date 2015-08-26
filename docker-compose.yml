@@ -1,0 +1,4 @@
+web:
+  extends:
+    file: docker-dev.yml
+    service: web
