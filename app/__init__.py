@@ -26,11 +26,19 @@ db = SQLAlchemy(app)
 
 # Import a module / component using its blueprint handler variable (mod_auth)
 from app.bp_root.views import bp as bp_root
-from app.bp_register.views import bp as bp_register
+from app.bp_project.views import bp as bp_project
+from app.bp_about.views import bp as bp_about
+from app.bp_blog.views import bp as bp_blog
+from app.bp_resume.views import bp as bp_resume
+from app.bp_contact.views import bp as bp_contact
 
 # Register blueprint(s)
 app.register_blueprint(bp_root)
-app.register_blueprint(bp_register)
+app.register_blueprint(bp_project)
+app.register_blueprint(bp_about)
+app.register_blueprint(bp_blog)
+app.register_blueprint(bp_resume)
+app.register_blueprint(bp_contact)
 
 # Simple case for debugging
 #@app.route('/')
