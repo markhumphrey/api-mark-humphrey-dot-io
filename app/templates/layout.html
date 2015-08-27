@@ -4,8 +4,8 @@
 {% set navigation_bar = [
   ('/', 'home', 'HOME'),
   ('/project/', 'project', 'PROJECT'),
-  ('/about/', 'about', 'ABOUT'),
   ('/blog/', 'blog', 'BLOG'),
+  ('/about/', 'about', 'ABOUT'),
   ('/resume/', 'resume', 'RESUME'),
   ('/contact/', 'contact', 'CONTACT')] -%}
   {% set active_page = active_page|default('home') -%}
@@ -44,7 +44,7 @@
   </head>
 
   {{ navbar(navigation_bar, active_page) }}
-  {{ carousel(carousel_items) }}
+<!--  {{ carousel(carousel_items) }} -->
 
   <div class="container">
     <div class="starter-template">
