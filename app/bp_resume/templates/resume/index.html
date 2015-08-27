@@ -1,34 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head lang="en">
-    <meta charset="UTF-8">
-    <title>Flask React</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- styles -->
-  </head>
-  <body>
-    <div class="container">
-      <h1>Flask React</h1>
-      <br>
-      <div id="content"></div>
+{% extends "layout.html" %}
+{% set active_page = "resume" %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-xs-4 text-left">
+    <h2>TECHNOLOGIES</h2>
     </div>
-    <!-- scripts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.12.0/react.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.12.0/JSXTransformer.js"></script>
-    <script type="text/jsx">
+    <div class="col-xs-4 text-left">
+      <h3>DAY-TO-DAY-COMFORT</h3>
+      <ul>
+        <li>C++</li>
+        <li>Python</li>
+        <li>HTML</li>
+        <li>HTML</li>
+      </ul>
+    </div>
+    <div class="col-xs-4 text-left">
+      <h3>EXPERIENCE WITH</h3>
+      <ul>
+        <li>C++</li>
+        <li>Python</li>
+        <li>HTML</li>
+        <li>HTML</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-      /*** @jsx React.DOM */
+<hr>
+<div class="row">
+  <h2>EXPERIENCE</h2>
+</div>
 
-      var helloWorld = React.createClass({
-        render: function() {
-          return (<h2>Greetings, from Real Python!</h2>)
-        }
-      });
+<hr>
+<div class="row">
+  <h2>EDUCATION</h2>
+</div>
 
-      React.render(
-        React.createElement(helloWorld, null),
-        document.getElementById('content')
-      );
-    </script>
-  </body>
-</html>
+<button>CONTACT ME</button>
+{% endblock %}
