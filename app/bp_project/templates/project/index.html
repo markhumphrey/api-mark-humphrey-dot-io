@@ -1,8 +1,18 @@
 {% extends "layout.html" %}
 {% set active_page = "project" %}
+{% from "project/_project_tile.html" import project_tile %}
+
 {% block header %}
 My Project page
 {% endblock %}
 {% block content %}
-<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+  <div class="row">
+    {{ project_tile() }}
+    {{ project_tile() }}
+    {{ project_tile() }}
+    {{ project_tile() }}
+    {{ project_tile() }}
+  </div>
+</div><!-- /.bs-example -->
 {% endblock %}

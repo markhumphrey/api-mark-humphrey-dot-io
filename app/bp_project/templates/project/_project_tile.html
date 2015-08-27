@@ -1,0 +1,12 @@
+{% macro project_tile(item) %}
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="{{ url_for('project.static', filename='images/project.jpg') }}" alt="Generic placeholder thumbnail">
+    <div class="caption">
+      <h3>Thumbnail label</h3>
+      <p>Example description of the project. This project uses these technologies. Github link. </p>
+      <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+    </div>
+  </div>
+</div>
+{% endmacro %}
