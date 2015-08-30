@@ -21,8 +21,12 @@
       {{ blogpost(title="Another Blog Post", date="December 25, 2013", content="This is content for the blog post. Here is some more content for the post. And some more content. And some more content. And some more content.") }}
       <nav>
         <ul class="pager">
-          <li><a href="#">Previous</a></li>
-          <li><a href="#">Next</a></li>
+          {% if older_url is defined %}
+            <li><a href="{{ older_url }}"> &lt; Older Posts</a></li>
+          {% endif %}
+          {% if newer_url is defined %}
+            <li><a href="{{ newer_url }}">Newer Posts &gt; </a></li>
+          {% endif %}
         </ul>
       </nav>
 
