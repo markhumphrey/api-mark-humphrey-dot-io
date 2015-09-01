@@ -1,0 +1,17 @@
+web:
+  build: ..
+  dockerfile: "docker/Dockerfile-web"
+  ports:
+   - "8080:8080"
+mysql:
+  build: ..
+  dockerfile: "docker/Dockerfile-mysql"
+  expose:
+   - "3306"
+  ports:
+    - "3307:3306"
+  environment:
+    MYSQL_DATABASE: database
+    MYSQL_USER: root
+    MYSQL_PASSWORD: admin123
+    MYSQL_ROOT_PASSWORD: admin123

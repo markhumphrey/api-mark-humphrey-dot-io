@@ -4,3 +4,7 @@ web:
     service: web
 #  environment:
 #    - REDIS_HOST=redis-production.example.com
+mysql:
+  extends:
+    file: common.yml
+    service: mysql

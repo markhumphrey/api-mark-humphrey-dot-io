@@ -1,4 +1,10 @@
 web:
   extends:
-    file: docker-dev.yml
+    file: docker/dev.yml
     service: web
+  #links:
+  # - "mysql"
+mysql:
+  extends:
+    file: docker/dev.yml
+    service: mysql
