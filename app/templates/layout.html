@@ -10,23 +10,6 @@
   ('/contact/', 'contact', 'CONTACT')] -%}
   {% set active_page = active_page|default('home') -%}
 
-  {% set carousel_items = [
-    ('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
-     'Example headline 1',
-     'Description',
-     '/project/',
-     'Read more'),
-    ('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
-     'Example headline 2',
-     'Description',
-     '/project/',
-     'Read more'),
-    ('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
-     'Example headline 3',
-     'Description',
-     '',
-     'Read more')] -%}
-
   <!DOCTYPE html>
   <html>
   <head lang="en">
@@ -44,7 +27,6 @@
   </head>
 
   {{ navbar(navigation_bar, active_page) }}
-  {{ carousel(carousel_items) }}
 
   <div class="container">
     <div class="starter-template">

@@ -1,8 +1,9 @@
 # Import flask dependencies
 from flask import Blueprint, request, render_template, \
-                  flash, g, session, redirect, url_for
+                  flash, g, session, redirect, url_for, jsonify
 
-from app import db
+from app import db, app
+from models import Post, PostSchema
 
 bp = Blueprint(name='blog', import_name=__name__, url_prefix='/blog',
                       static_folder='static', template_folder='templates')
@@ -25,4 +26,12 @@ def page(page_num):
 
 @bp.route("/<int:year>/<string:name>/", methods=['GET'])
 def post(year, name):
-    return "Year=%d Name=%s" % (year, name)
+    testfile = "%s/blog/2015/test-post.json" % app.config["TEST_DATA_DIR"]
+    f = open(testfile)
+    teststr = f.read()
+    print teststr
+    post_schema = PostSchema()
+    post = post_schema.loads(teststr).data;
+    #return post_schema.jsonify(post)
+    #return "Year=%d Name=%s" % (year, name)
+    return render_template(bp.name + "/single_post.html", post=post)

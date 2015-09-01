@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% from "blog/_blogpost.html" import blogpost %}
+{% set active_page = "blog" %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('blog.static', filename='css/style.css') }}">
+{% endblock %}
+{% block header %}
+{% endblock %}
+{% block content %}
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+
+      {{ blogpost(title="Another Blog Post", date="December 25, 2013", content="This is content for the blog post. Here is some more content for the post. And some more content. And some more content. And some more content.") }}
+  
+    </div><!-- /.blog-main -->
+
+  </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+{% endblock %}

@@ -16,6 +16,7 @@ SQLALCHEMY_DATABASE_URI = 'sqlite://'
 # turn on query generation logging
 SQLALCHEMY_ECHO=True
 DATABASE_CONNECT_OPTIONS = {}
+TEST_DATA_DIR=os.path.abspath("%s/data/" % os.path.join(BASE_DIR, os.pardir))
 
 # Application threads. A common general assumption is
 # using 2 per available processor cores - to handle

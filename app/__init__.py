@@ -6,6 +6,7 @@ from flask import Flask, render_template
 
 # Import SQLAlchemy
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
 # Define the WSGI application object
 app = Flask(__name__)
@@ -17,7 +18,9 @@ app.config.from_envvar('FLASK_CONFIG_FILE', silent=True)
 
 # Define the database object which is imported
 # by modules and controllers
+# Order matters: Initialize SQLAlchemy before Marshmallow
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 # Sample HTTP error handling
 #@app.errorhandler(404)
@@ -46,6 +49,8 @@ app.register_blueprint(bp_contact)
 #    return 'Hello World!'
 
 # Build the database:
+# import all models so that SQLAlchemy can initialize the db with create_all()
+from app.bp_blog.models import Post
 # This will create the database file using SQLAlchemy
 # Empty url implies sqllite in-memory db which needs special handling
 if app.config['DEBUG'] and app.config['SQLALCHEMY_DATABASE_URI'] != 'sqlite://':

@@ -1,8 +1,25 @@
 {% extends "layout.html" %}
 {% set active_page = "home" %}
+{% set carousel_items = [
+  ('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+   'Example headline 1',
+   'Description',
+   '/project/',
+   'Read more'),
+  ('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+   'Example headline 2',
+   'Description',
+   '/project/',
+   'Read more'),
+  ('data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+   'Example headline 3',
+   'Description',
+   '',
+   'Read more')] -%}
+
 {% block header %}
-Bootstrap starter template
 {% endblock %}
 {% block content %}
+{{ carousel(carousel_items) }}
 <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
 {% endblock %}
