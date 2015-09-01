@@ -2,10 +2,11 @@ from app import db, ma
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.Date, unique=True)
-    uri = db.Column(db.String(180), unique=True)
+    date = db.Column(db.Date)
+    uri = db.Column(db.String(180))
     title = db.Column(db.Text)
     content = db.Column(db.Text)
+    __table_args__ = (db.UniqueConstraint('date', 'uri', name='uq_date_uri'),)
     def __repr__(self):
         return "<%s(id=%r, datetime=%r, uri=%r, title=%r, content=%r)>" % (type(self), self.id, self.datetime, self.uri, self.title, self.content)
 
