@@ -2,8 +2,8 @@ web:
   extends:
     file: docker/dev.yml
     service: web
-  #links:
-  # - "mysql"
+  links:
+   - "mysql"
 mysql:
   extends:
     file: docker/dev.yml

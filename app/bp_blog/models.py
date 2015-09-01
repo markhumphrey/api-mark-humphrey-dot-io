@@ -1,11 +1,9 @@
-from sqlalchemy.sql import func
-
 from app import db, ma
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    datetime = db.Column(db.DateTime, unique=True, default=func.now())
-    uri = db.Column(db.Text, unique=True)
+    date = db.Column(db.Date, unique=True)
+    uri = db.Column(db.String(180), unique=True)
     title = db.Column(db.Text)
     content = db.Column(db.Text)
     def __repr__(self):
