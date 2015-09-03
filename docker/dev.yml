@@ -7,7 +7,7 @@ web:
 #  links:
 #   - redis
   environment:
-    - NODE_PATH=/my_app/node_modules
+    - NODE_PATH=/app/node_modules
 #    - REDIS_HOST=redis
   command: /env/bin/python /code/main.py
 mysql:
