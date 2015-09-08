@@ -4,15 +4,13 @@ web:
     service: web
   volumes:
    - ..:/code:ro
-#  links:
-#   - redis
   environment:
     - NODE_PATH=/app/node_modules
-#    - REDIS_HOST=redis
+  # entrypoint can't see volumes e.g. /code for some reason
+  # for now clear out entrypoint and use command for development
+  entrypoint: []
   command: /env/bin/python /code/main.py
 mysql:
   extends:
     file: common.yml
     service: mysql
-#redis:
-#  image: redis
