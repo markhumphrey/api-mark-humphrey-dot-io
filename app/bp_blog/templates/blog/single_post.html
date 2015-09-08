@@ -15,9 +15,7 @@
   <div class="row">
 
     <div class="col-sm-8 blog-main">
-
-      {{ blogpost(title="Another Blog Post", date="December 25, 2013", content="This is content for the blog post. Here is some more content for the post. And some more content. And some more content. And some more content.") }}
-  
+      {{ blogpost(title=post.title, date=post.date, content=post.content, url="") }}
     </div><!-- /.blog-main -->
 
   </div><!-- /.row -->

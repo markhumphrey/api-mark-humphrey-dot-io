@@ -8,7 +8,10 @@ class Post(db.Model):
     content = db.Column(db.Text)
     __table_args__ = (db.UniqueConstraint('date', 'uri', name='uq_date_uri'),)
     def __repr__(self):
-        return "<%s(id=%r, datetime=%r, uri=%r, title=%r, content=%r)>" % (type(self), self.id, self.datetime, self.uri, self.title, self.content)
+        return "<%s(id=%r, date=%r, uri=%r, title=%r, content=%r)>" % (type(self), self.id, self.date, self.uri, self.title, self.content)
+
+    def url(self):
+        return "%i/%s/%s" % (self.date.year, self.date.month, self.uri)
 
     def print_methods(self):
         """ print all the methods of this object and their doc string"""
