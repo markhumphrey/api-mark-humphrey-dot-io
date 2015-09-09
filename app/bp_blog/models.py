@@ -10,8 +10,8 @@ class Post(db.Model):
     def __repr__(self):
         return "<%s(id=%r, date=%r, uri=%r, title=%r, content=%r)>" % (type(self), self.id, self.date, self.uri, self.title, self.content)
 
-    def url(self):
-        return "%i/%s/%s" % (self.date.year, self.date.month, self.uri)
+#    def url(self):
+        #return "%i/%s/%s" % (self.date.year, self.date.month, self.uri)
 
     def print_methods(self):
         """ print all the methods of this object and their doc string"""

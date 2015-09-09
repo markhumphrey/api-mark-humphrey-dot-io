@@ -17,7 +17,7 @@
     <div class="col-sm-12 blog-main">
 
       {% for post in posts %}
-        {{ blogpost(title=post.title, date=post.date, content=post.content, url=post.url()) }}
+        {{ blogpost(title=post.title, date=post.date, content=post.content, uri=post.uri) }}
       {% endfor %}
 
       <nav>
