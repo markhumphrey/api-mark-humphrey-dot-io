@@ -26,15 +26,20 @@
     {% block styles %}{% endblock %}
   </head>
 
+  <body>
   {{ navbar(navigation_bar, active_page) }}
 
   <div class="container">
     <div class="starter-template">
       <div id="header"><h1>{% block header %}{% endblock %}</h1></div>
       <div id="content">{% block content %}{% endblock %}</div>
-      <div id="footer">{% block footer %}{% endblock %}</div>
     </div>
   </div><!-- /.container -->
+
+  <footer id="footer" class="footer">
+      {% block footer %}{% endblock %}
+      <p class="text-muted">Place footer content here.</p>
+  </footer>
 
   <!-- scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
