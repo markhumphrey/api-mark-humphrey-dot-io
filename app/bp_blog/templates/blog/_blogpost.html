@@ -2,14 +2,21 @@
 {% set post_url = url_for('blog.post', year=date.year, month=date.month, name=uri, _external=true) %}
 <div class="blog-post text-left">
   <h2 class="blog-post-title"><a href="{{ post_url }}">{{ title }}</a></h2>
-  <div class="blog-post-date">{{ date }}</div>
-  <div>
-  <a class="twitter-share-button"
+  <p class="blog-post-date">
+    {{ date.strftime('%B %d, %Y') }}
+  </p>
+  <p>
+    <a class="twitter-share-button"
     data-count="none"
     href="https://twitter.com/intent/tweet?text={{ title }}&hashtags=DOCKER,DOCKER&via=Mark_S_Humphrey&url={{ post_url }}">
     Tweet
   </a>
-</div>
+</p>
+<p>
   {{ content }}
+</p>
+<p>
+  <a href="{{ post_url }}">Read More</a>
+</p>
 </div>
 {% endmacro %}
