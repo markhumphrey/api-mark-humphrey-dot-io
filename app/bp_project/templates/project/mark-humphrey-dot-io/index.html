@@ -1,16 +1,12 @@
-{% extends "layout.html" %}
+{% extends "project/project_layout.html" %}
 {% set active_page = "project" %}
-{% from "project/_project_tile.html" import project_tile %}
 
 {% block header %}
-My Project page
+MarkHumphrey.io Project
 {% endblock %}
 {% block content %}
 <div class="bs-example" data-example-id="thumbnails-with-custom-content">
   <div class="row">
-    {% for proj in projects %}
-      {{ project_tile(proj) }}
-    {% endfor %}
   </div>
 </div><!-- /.bs-example -->
 {% endblock %}
