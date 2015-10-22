@@ -1,3 +1,8 @@
+nginx:
+  build: ..
+  dockerfile: "docker/Dockerfile-nginx"
+  ports:
+    - "80:80"
 web:
   build: ..
   dockerfile: "docker/Dockerfile-web"

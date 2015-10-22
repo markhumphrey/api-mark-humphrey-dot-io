@@ -1,3 +1,7 @@
+nginx:
+  extends:
+    file: common.yml
+    service: nginx
 web:
   extends:
     file: common.yml

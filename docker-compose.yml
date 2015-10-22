@@ -1,3 +1,9 @@
+nginx:
+  extends:
+    file: docker/dev.yml
+    service: nginx
+  links:
+    - "web"
 web:
   extends:
     file: docker/dev.yml

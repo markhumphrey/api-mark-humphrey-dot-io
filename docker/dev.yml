@@ -1,3 +1,7 @@
+nginx:
+  extends:
+    file: common.yml
+    service: nginx
 web:
   extends:
     file: common.yml
@@ -9,7 +13,8 @@ web:
   # entrypoint can't see volumes e.g. /code for some reason
   # for now clear out entrypoint and use command for development
   entrypoint: []
-  command: /env/bin/python /code/main.py
+  # command: /env/bin/python /code/main.py
+  command: /env/bin/uwsgi /code/uwsgi.ini
 mysql:
   extends:
     file: common.yml
