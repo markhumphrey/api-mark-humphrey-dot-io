@@ -15,8 +15,8 @@ web:
   # entrypoint can't see volumes e.g. /code for some reason
   # for now clear out entrypoint and use command for development
   entrypoint: []
-  # command: /env/bin/python /code/main.py
-  command: /env/bin/uwsgi --py-autoreload=1 /code/uwsgi.ini
+  command: /env/bin/python /code/main.py
+  # command: /env/bin/uwsgi --py-autoreload=1 /code/uwsgi.ini
 mysql:
   extends:
     file: common.yml

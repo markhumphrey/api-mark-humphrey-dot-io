@@ -14,14 +14,20 @@
   <html>
   <head lang="en">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Full-Stack Developer/Leader - Mark Humphrey</title>
-    <!-- Latest compiled and minified CSS -->
+
+    <!-- Boostrap 3 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <!-- styles -->
+
+    <!-- Bootstrap 4 CSS
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    -->
+
+    <!-- Site Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block styles %}{% endblock %}
   </head>
@@ -42,9 +48,15 @@
   </footer>
 
   <!-- scripts -->
+  <!-- jQuery first, then Bootstrap 3 JS. -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- jQuery first, then Bootstrap 4 JS.
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  -->
+
   <script>
   window.twttr = (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
