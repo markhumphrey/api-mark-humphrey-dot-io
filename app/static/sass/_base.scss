@@ -24,7 +24,8 @@ h6, .h6 {
 .footer {
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 300px;
+  height: 100px;
   background-color: $primary-color-dark;
+  /* Causes the footer to appear extend to the bottom of the browser pane */
+  box-shadow: 0px 500px 0px 500px $primary-color-dark;
 }

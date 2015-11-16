@@ -1,50 +1,44 @@
-{% from '_carousel.html' import carousel  %}
-{% from '_navbar.html' import navbar  %}
+{% from '_carousel.html' import carousel %} {% from '_navbar.html' import navbar %} {% set navigation_bar = [ ('/', 'home', 'HOME'), ('/project/', 'project', 'PROJECT'), ('/blog/', 'blog', 'BLOG'), ('/about/', 'about', 'ABOUT'), ('/resume/', 'resume',
+'RESUME'), ('/contact/', 'contact', 'CONTACT')] -%} {% set active_page = active_page|default('home') -%}
 
-{% set navigation_bar = [
-  ('/', 'home', 'HOME'),
-  ('/project/', 'project', 'PROJECT'),
-  ('/blog/', 'blog', 'BLOG'),
-  ('/about/', 'about', 'ABOUT'),
-  ('/resume/', 'resume', 'RESUME'),
-  ('/contact/', 'contact', 'CONTACT')] -%}
-  {% set active_page = active_page|default('home') -%}
+<!DOCTYPE html>
+<html>
 
-  <!DOCTYPE html>
-  <html>
-  <head lang="en">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Full-Stack Developer/Leader - Mark Humphrey</title>
+  <title>Full-Stack Developer/Leader - Mark Humphrey</title>
 
-    <!-- Boostrap 3 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <!-- Boostrap 3 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    <!-- Bootstrap 4 CSS
+  <!-- Bootstrap 4 CSS
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     -->
 
-    <!-- Site Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    {% block styles %}{% endblock %}
-  </head>
+  <!-- Site Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> {% block styles %}{% endblock %}
+</head>
 
-  <body>
+<body>
   {{ navbar(navigation_bar, active_page) }}
 
   <div class="container">
     <div class="starter-template">
-      <div id="header"><h1>{% block header %}{% endblock %}</h1></div>
+      <div id="header">
+        <h1>{% block header %}{% endblock %}</h1>
+      </div>
       <div id="content">{% block content %}{% endblock %}</div>
     </div>
-  </div><!-- /.container -->
+  </div>
+  <!-- /.container -->
 
   <footer id="footer" class="footer">
-      {% block footer %}{% endblock %}
-      <p class="text-muted">Place footer content here.</p>
+    {% block footer %}{% endblock %}
+    <p class="text-muted">Place footer content here.</p>
   </footer>
 
   <!-- scripts -->
@@ -58,23 +52,40 @@
   -->
 
   <script>
-  window.twttr = (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0],
-      t = window.twttr || {};
-    if (d.getElementById(id)) return t;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
+  /*
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
 
-    t._e = [];
-    t.ready = function(f) {
-      t._e.push(f);
-    };
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
 
-    return t;
-  }(document, "script", "twitter-wjs"));
+      return t;
+    }(document, "script", "twitter-wjs"));
+    */
   </script>
+  <script>
+   window.twttr = function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        p = /^http:/.test(d.location) ? 'http' : 'https';
+      if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + "://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, "script", "twitter-wjs");
+  </script>
+
+
   {% block scripts %}{% endblock %}
 </body>
+
 </html>
