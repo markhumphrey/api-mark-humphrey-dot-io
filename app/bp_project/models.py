@@ -1,6 +1,5 @@
 from app import db, ma
 
-
 class Project(db.Model):
     id = db.Column(db.String(180), primary_key=True)
     name = db.Column(db.Text)
