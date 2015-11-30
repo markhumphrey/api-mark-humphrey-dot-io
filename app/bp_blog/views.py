@@ -1,13 +1,14 @@
 # Import flask dependencies
 from flask import Blueprint, request, render_template, \
-                  flash, g, session, redirect, url_for, jsonify
+    flash, g, session, redirect, url_for, jsonify, Response, json
 
 from app import db, app
 from models import Post, PostSchema
 
-bp = Blueprint(name='blog', import_name=__name__, url_prefix='/blog',
-                      static_folder='static', template_folder='templates')
+bp = Blueprint(name='blog', import_name=__name__, url_prefix='/blog')
 
+
+"""
 POSTS_PER_PAGE = 10;
 
 def _page(page_num):
@@ -44,3 +45,28 @@ def post(year, month,  name):
     if (post is None):
         return redirect(url_for("blog.index"))
     return render_template(bp.name + "/single_post.html", post=post)
+"""
+
+
+@bp.route('/', methods=['GET'])
+def index():
+    offset = int(request.args.get('offset'))
+    limit = int(request.args.get('limit'))
+    posts = Post.query.order_by(Post.date.desc()).slice(offset, limit)
+    if posts is None:
+        pass
+    result = PostSchema(many=True).dump(posts)
+
+    # return jsonify(projects=result.data)
+    return Response(json.dumps(result.data),  mimetype='application/json')
+
+
+@bp.route("/<int:year>/<int:month>/<string:name>/", methods=['GET'])
+def post(year, month,  name):
+    post = Post.query.filter(Post.date.between("%d-%d-01" % (year, month),
+                                               "%d-%d-31" % (year, month)),
+                             Post.uri == name).first()
+    if post is None:
+        pass
+        # return redirect(url_for("blog.index"))
+    return PostSchema().jsonify(post)

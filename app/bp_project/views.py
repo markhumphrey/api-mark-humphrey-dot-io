@@ -5,8 +5,7 @@ from flask import Blueprint, request, render_template, \
 from app import db
 from models import Project, ProjectSchema
 
-bp = Blueprint(name='project', import_name=__name__, url_prefix='/project',
-                      static_folder='static', template_folder='templates')
+bp = Blueprint(name='project', import_name=__name__, url_prefix='/project')
 
 """
 @bp.route('/', methods=['GET'])

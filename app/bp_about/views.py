@@ -4,8 +4,7 @@ from flask import Blueprint, request, render_template, \
 
 from app import db
 
-bp = Blueprint(name='about', import_name=__name__, url_prefix='/about',
-                      static_folder='static', template_folder='templates')
+bp = Blueprint(name='about', import_name=__name__, url_prefix='/about')
 
 @bp.route('/', methods=['GET'])
 def index():

@@ -1,8 +1,8 @@
 from flask import Flask
 app = Flask(__name__)
 
-# Import flask and template operators
-from flask import Flask, render_template
+# Import flask
+from flask import Flask
 
 # Import SQLAlchemy
 from flask.ext.sqlalchemy import SQLAlchemy
