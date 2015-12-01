@@ -50,8 +50,11 @@ def post(year, month,  name):
 
 @bp.route('/', methods=['GET'])
 def index():
-    offset = int(request.args.get('offset'))
-    limit = int(request.args.get('limit'))
+    offset = request.args.get('offset')
+    offset = int(offset) if offset else None
+    limit = request.args.get('limit')
+    limit = int(limit) if limit else None
+    
     posts = Post.query.order_by(Post.date.desc()).slice(offset, limit)
     if posts is None:
         pass
