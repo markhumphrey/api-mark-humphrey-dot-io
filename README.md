@@ -1,6 +1,8 @@
-# mhumphrey/flask-app-template
+# mhumphrey/api-mark-humphrey-dot-io
 
-This is an evolving personal base template for my Flask apps wrapped up in a Docker image for development and deployment.
+*** NOTE: Currently migrating from server side templating with Jinja2 and Flask to AngularJS client side with Flask as the backend api. ***
+
+This is the backend api for my web site wrapped up in a Docker image for development and deployment.
 
 ## Usage
 
