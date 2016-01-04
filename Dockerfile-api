@@ -1,1 +1,18 @@
-FROM markhumphrey/python-web-runtime
+FROM python:2.7
+
+WORKDIR /app
+
+# install python library requirements
+RUN virtualenv /venv
+ADD requirements.txt /app/requirements.txt
+RUN /venv/bin/pip install -r /app/requirements.txt
+
+# add python uwsgi config files
+ADD uwsgi.ini /app/uwsgi.ini
+
+# add remainder of application source code
+ADD . /app
+
+EXPOSE 8080
+CMD []
+ENTRYPOINT ["/venv/bin/uwsgi", "/app/uwsgi.ini"]
