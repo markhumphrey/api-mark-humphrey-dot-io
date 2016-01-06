@@ -17,5 +17,5 @@ SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:admin123@sql/database'
 SQLALCHEMY_ECHO = True
 DATABASE_CONNECT_OPTIONS = {}
 
-BLOG_DATA_DIR = "/code/data/raw/blog"
-PROJECT_DATA_DIR = "/code/data/raw/project"
+BLOG_DATA_DIR = "/app/data/raw/blog"
+PROJECT_DATA_DIR = "/app/data/raw/project"
